@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>九九乘法口诀表（彩色阶梯形）</title>
+
+   <link href="../css/output.css" rel="stylesheet">
+  <style>
+    .kukou-table { width:100%; max-width:420px; }
+    .kukou-row { display: flex; justify-content: flex-start; gap: 8px; margin-bottom: 10px; }
+    .kukou-cell {
+      border-radius: 0.8em;
+      box-shadow: 0 2px 10px 0 rgba(251,146,60,.07),0 .5px 1.5px 0 rgba(251,146,60,.09);
+      font-size: 1.08rem;
+      font-weight: bold;
+      min-width: 74px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.16s, color 0.16s;
+      user-select: none;
+    }
+    .kukou-cell:hover, .kukou-cell.active {
+      border: 2px solid #fdba74;
+      color: #9a3412 !important;
+      box-shadow: 0 6px 24px 0 rgba(251, 146, 60, 0.10);
+      filter: brightness(1.12);
+    }
+      .kukou-cell{
+       border: 2px solid#FFF; 
+      }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-orange-50 to-yellow-50 min-h-screen">
+  <div class="flex justify-center items-start mt-8 md:mt-16">
+    <div class="w-full max-w-3xl bg-white/90 rounded-3xl shadow-xl p-4 sm:p-8 mx-0 sm:mx-2">
+      <button  onclick="location.href='../home-primary.html'"
+        class="px-4 py-1 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 shadow text-sm transition mb-3">
+        ← 返回小学知识天地
+      </button>
+      <p class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-1 text-center tracking-tight text-orange-700 drop-shadow">
+        九九乘法口诀表（彩色阶梯形）
+      </p>
+      <hr class="my-2 sm:my-4 border-orange-200">
+      <p class="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 p-2 sm:p-3 bg-orange-50/70 rounded-lg text-center shadow-sm">
+        每一列颜色不同，更易区分和记忆。点击可分解。
+      </p>
+      <div class="kukou-table">
+        <div class="kukou-row">
+          <div class="kukou-cell bg-red-100 text-red-700">1×1=1</div>
+        </div>
+        <div class="kukou-row">
+          <div class="kukou-cell bg-red-100 text-red-700">1×2=2</div>
+          <div class="kukou-cell bg-orange-100 text-orange-700">2×2=4</div>
+        </div>
+        <div class="kukou-row">
+          <div class="kukou-cell bg-red-100 text-red-700">1×3=3</div>
+          <div class="kukou-cell bg-orange-100 text-orange-700">2×3=6</div>
+          <div class="kukou-cell bg-yellow-100 text-yellow-700">3×3=9</div>
+        </div>
+        <div class="kukou-row">
+          <div class="kukou-cell bg-red-100 text-red-700">1×4=4</div>
+          <div class="kukou-cell bg-orange-100 text-orange-700">2×4=8</div>
+          <div class="kukou-cell bg-yellow-100 text-yellow-700">3×4=12</div>
+          <div class="kukou-cell bg-lime-100 text-lime-700">4×4=16</div>
+        </div>
+        <div class="kukou-row">
+          <div class="kukou-cell bg-red-100 text-red-700">1×5=5</div>
+          <div class="kukou-cell bg-orange-100 text-orange-700">2×5=10</div>
+          <div class="kukou-cell bg-yellow-100 text-yellow-700">3×5=15</div>
+          <div class="kukou-cell bg-lime-100 text-lime-700">4×5=20</div>
+          <div class="kukou-cell bg-green-100 text-green-700">5×5=25</div>
+        </div>
+        <div class="kukou-row">
+          <div class="kukou-cell bg-red-100 text-red-700">1×6=6</div>
+          <div class="kukou-cell bg-orange-100 text-orange-700">2×6=12</div>
+          <div class="kukou-cell bg-yellow-100 text-yellow-700">3×6=18</div>
+          <div class="kukou-cell bg-lime-100 text-lime-700">4×6=24</div>
+          <div class="kukou-cell bg-green-100 text-green-700">5×6=30</div>
+          <div class="kukou-cell bg-teal-100 text-teal-700">6×6=36</div>
+        </div>
+        <div class="kukou-row">
+          <div class="kukou-cell bg-red-100 text-red-700">1×7=7</div>
+          <div class="kukou-cell bg-orange-100 text-orange-700">2×7=14</div>
+          <div class="kukou-cell bg-yellow-100 text-yellow-700">3×7=21</div>
+          <div class="kukou-cell bg-lime-100 text-lime-700">4×7=28</div>
+          <div class="kukou-cell bg-green-100 text-green-700">5×7=35</div>
+          <div class="kukou-cell bg-teal-100 text-teal-700">6×7=42</div>
+          <div class="kukou-cell bg-cyan-100 text-cyan-700">7×7=49</div>
+        </div>
+        <div class="kukou-row">
+          <div class="kukou-cell bg-red-100 text-red-700">1×8=8</div>
+          <div class="kukou-cell bg-orange-100 text-orange-700">2×8=16</div>
+          <div class="kukou-cell bg-yellow-100 text-yellow-700">3×8=24</div>
+          <div class="kukou-cell bg-lime-100 text-lime-700">4×8=32</div>
+          <div class="kukou-cell bg-green-100 text-green-700">5×8=40</div>
+          <div class="kukou-cell bg-teal-100 text-teal-700">6×8=48</div>
+          <div class="kukou-cell bg-cyan-100 text-cyan-700">7×8=56</div>
+          <div class="kukou-cell bg-blue-100 text-blue-700">8×8=64</div>
+        </div>
+        <div class="kukou-row">
+          <div class="kukou-cell bg-red-100 text-red-700">1×9=9</div>
+          <div class="kukou-cell bg-orange-100 text-orange-700">2×9=18</div>
+          <div class="kukou-cell bg-yellow-100 text-yellow-700">3×9=27</div>
+          <div class="kukou-cell bg-lime-100 text-lime-700">4×9=36</div>
+          <div class="kukou-cell bg-green-100 text-green-700">5×9=45</div>
+          <div class="kukou-cell bg-teal-100 text-teal-700">6×9=54</div>
+          <div class="kukou-cell bg-cyan-100 text-cyan-700">7×9=63</div>
+          <div class="kukou-cell bg-blue-100 text-blue-700">8×9=72</div>
+          <div class="kukou-cell bg-pink-100 text-pink-700">9×9=81</div>
+        </div>
+      </div>
+      <div class="bg-orange-50/80 rounded-xl shadow-inner p-3 text-orange-900 mt-4 mb-2 text-sm leading-relaxed">
+        <b>口诀表学习建议：</b><br>
+        建议按阶梯顺序背诵，先熟练下三角，再挑战上方难点。可以两人对答、一人提问一人背诵，加强记忆。
+      </div>
+      <footer class="mt-6 text-xs text-gray-500 bg-orange-50/80 p-3 rounded-lg text-center shadow-inner">
+        &copy; 2025 学习喽
+      </footer>
+    </div>
+  </div>
+<!-- 弹窗区域：建议放在body最末尾 -->
+<div id="kukou-modal-overlay"
+     class="fixed inset-0 z-50 hidden bg-black/20 flex items-center justify-center">
+  <div class="bg-white rounded-xl shadow-lg p-6 max-w-xs w-[90vw] mx-auto relative">
+    <button id="kukou-modal-close" class="absolute right-3 top-2 text-2xl text-gray-400 hover:text-orange-400 font-bold">×</button>
+    <div id="kukou-modal-content" class="text-base text-orange-900"></div>
+  </div>
+</div>
+
+<script>
+const colorList = [
+  ['bg-red-100','text-red-700'],
+  ['bg-orange-100','text-orange-700'],
+  ['bg-yellow-100','text-yellow-700'],
+  ['bg-lime-100','text-lime-700'],
+  ['bg-green-100','text-green-700'],
+  ['bg-teal-100','text-teal-700'],
+  ['bg-cyan-100','text-cyan-700'],
+  ['bg-blue-100','text-blue-700'],
+  ['bg-pink-100','text-pink-700'],
+];
+
+function getDetail(m1, m2) {
+  const product = m1 * m2;
+  const arr1 = Array(m1).fill(m2).join(' + ');
+  const arr2 = Array(m2).fill(m1).join(' + ');
+  const colorIdx = Math.max(m1, m2) - 1;
+  const [bg, txt] = colorList[colorIdx] || ['bg-gray-100','text-gray-700'];
+  // 小方格展示
+  let grid = '<div class="inline-block mt-3 mb-1">';
+  grid += `<div class="text-xs text-gray-500 mb-1">${m1}行 × ${m2}列 = <b>${product}个方格</b></div>`;
+  grid += '<div class="inline-block">';
+  for (let i = 0; i < m1; ++i) {
+    grid += '<div class="flex justify-center">';
+    for (let j = 0; j < m2; ++j) {
+      grid += `<div class="w-5 h-5 m-0.5 rounded border ${bg} ${txt} flex items-center justify-center text-xs font-bold">${(i*m2+j+1)<=9 ? (i*m2+j+1):''}</div>`;
+    }
+    grid += '</div>';
+  }
+  grid += '</div></div>';
+  return `
+    <div class="text-lg font-bold mb-2 text-orange-700">${m1} × ${m2} = ${product}</div>
+    <div class="mb-2">可以理解为：</div>
+    <div class="mb-1"><b>方案一：</b>${m1} 个 ${m2} 相加：<br><span class="font-mono">${arr1} = ${product}</span></div>
+    <div class="mb-1"><b>方案二：</b>${m2} 个 ${m1} 相加：<br><span class="font-mono">${arr2} = ${product}</span></div>
+    ${grid}
+   
+  `;
+}
+
+const modalOverlay = document.getElementById('kukou-modal-overlay');
+const modalClose = document.getElementById('kukou-modal-close');
+const modalContent = document.getElementById('kukou-modal-content');
+
+document.querySelectorAll('.kukou-cell').forEach(cell => {
+  cell.addEventListener('click', function () {
+    const match = this.textContent.match(/(\d+)×(\d+)=/);
+    if (!match) return;
+    const m1 = parseInt(match[1]);
+    const m2 = parseInt(match[2]);
+    modalContent.innerHTML = getDetail(m1, m2);
+    modalOverlay.classList.remove('hidden');
+  });
+});
+
+modalClose.addEventListener('click', ()=>modalOverlay.classList.add('hidden'));
+modalOverlay.addEventListener('click', e=>{
+  if (e.target === modalOverlay) modalOverlay.classList.add('hidden');
+});
+</script>
+</body>
+</html>

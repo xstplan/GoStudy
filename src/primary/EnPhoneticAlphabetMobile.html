@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <title>国际音标表</title>
+   <link href="../css/output.css" rel="stylesheet">
+  <style>
+    .phonetic-card {
+      @apply bg-white rounded-2xl shadow-md px-2 sm:px-4 py-3 flex flex-col items-center justify-center mb-2 border border-blue-100 transition duration-200;
+      cursor: pointer;
+      box-shadow: 0 2px 10px 0 rgba(56, 189, 248, 0.09), 0 0.5px 1.5px 0 rgba(30, 64, 175, 0.07);
+      will-change: transform, box-shadow;
+          border-radius: 15px;
+    }
+    .phonetic-card:hover, .phonetic-card:active {
+    
+      box-shadow: 0 8px 32px 0 rgba(30, 64, 175, 0.20), 0 2px 8px 0 rgba(56, 189, 248, 0.12);
+      border-color: #60a5fa;
+      background: linear-gradient(105deg, #e0f2fe 70%, #fff 100%);
+    }
+    .phonetic-card span {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #2563eb;
+      margin-bottom: 0.3em;
+      margin-top: 0.1em;
+      text-shadow: 0 1px 1.5px #e0e7ef;
+    }
+    .phonetic-label {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 0.1em;
+    margin-top: -0.5em;
+    font-weight: bold;
+    letter-spacing: 0.02em;
+    width: 35%;
+    background: #034aff;
+    }
+    body {
+      background: white !important;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen">
+  
+  <div class="flex justify-center items-start mt-6 md:mt-16">
+    <div class="w-full max-w-4xl bg-white/80 rounded-3xl shadow-xl p-2 sm:p-6 md:p-8 mx-0 sm:mx-2">
+      <div>
+          <button onclick="location.href='../home-primary.html'"
+        class="px-4 py-1 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 shadow text-sm transition">
+        ← 返回小学知识天地
+      </button>
+        <p class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-1 text-center tracking-tight text-blue-700 drop-shadow">
+          国际音标表
+        </p>
+        <hr class="my-2 sm:my-4 border-blue-200">
+        <p class="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 p-2 sm:p-3 bg-blue-50/70 rounded-lg text-center shadow-sm">
+          48个国际音标中有20个元音、28个辅音，点击即可发音.
+        </p>
+        
+      </div>
+      <!-- 音标分区标题 -->
+      <div class="mt-2 mb-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 text-center">
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="text-blue-900 font-bold text-lg sm:text-xl md:text-2xl my-1 tracking-wide">元音</div>
+        </div>
+        <!-- 前元音 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="phonetic-label font-semibold bg-blue-100 rounded-lg shadow p-1 px-3 inline-block my-1">前元音</div>
+        </div>
+        <div class="phonetic-card"
+     data-symbol="/iː/"
+     data-type="前元音"
+     data-letters="ee, ea, ie, ei e , ey y, i"
+     data-examples="see, eat, chief,  key, happy, please"
+     data-tip="长元音，舌位前，口形微张,类似中文“衣”音，但拉得更长更饱满">
+  <audio src="./EnMp3/1.mp3"></audio>
+  <span>/iː/</span>
+</div>
+       <div class="phonetic-card"
+     data-symbol="/ɪ/"
+     data-type="前元音"
+     data-letters="i, y"
+     data-examples="sit, myth, gym"
+     data-tip="短元音，舌位靠前，口形较小，发音短促,拼写为“i”或“y”时，往往在闭音节（如 sit、gym）读 /ɪ/；拼写为“ee”“ea”时则为 /iː/。“闭音节的 i，多半读短音 /ɪ/”
+“y 在词尾、音节收尾时，常读 /ɪ/”">
+  <audio src="./EnMp3/2.mp3"></audio>
+  <span>/ɪ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/e/"
+     data-type="前元音"
+     data-letters="e, ea"
+     data-examples="bed, head"
+     data-tip="中短元音，发音时口形稍张，舌尖前移">
+  <audio src="./EnMp3/11.mp3"></audio>
+  <span>/e/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/æ/"
+     data-type="前元音"
+     data-letters="a"
+     data-examples="cat, hat"
+     data-tip="极短元音，口形最大，舌位最低">
+  <audio src="./EnMp3/12.mp3"></audio>
+  <span>/æ/</span>
+</div>
+        <!-- 中元音 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="phonetic-label font-semibold bg-blue-100 rounded-lg shadow p-1 px-3 inline-block my-1">中元音</div>
+        </div>
+      <div class="phonetic-card"
+     data-symbol="/ɜː/"
+     data-type="中元音"
+     data-letters="ir, ur, er"
+     data-examples="bird, turn, her"
+     data-tip="发长音，口形略张，舌位居中，气流平稳">
+  <audio src="./EnMp3/10.mp3"></audio>
+  <span>/ɜː/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ə/"
+     data-type="中元音"
+     data-letters="a, o, e, u"
+     data-examples="about, lemon, circus"
+     data-tip="最短元音（schwa），多见于弱读音节，口形自然放松">
+  <audio src="./EnMp3/9.mp3"></audio>
+  <span>/ə/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ʌ/"
+     data-type="中元音"
+     data-letters="u, o"
+     data-examples="cup, son, love"
+     data-tip="短音，舌位中间，口腔自然，声音清晰有力">
+  <audio src="./EnMp3/5.mp3"></audio>
+  <span>/ʌ/</span>
+</div>
+        <!-- 后元音 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="phonetic-label font-semibold bg-blue-100 rounded-lg shadow p-1 px-3 inline-block my-1">后元音</div>
+        </div>
+     <div class="phonetic-card"
+     data-symbol="/uː/"
+     data-type="后元音"
+     data-letters="oo, u, ou"
+     data-examples="food, blue, group"
+     data-tip="长元音，双唇突出，舌位高后，发音悠长,常出现在“oo, ue, ew, ui”等拼写或开音节">
+  <audio src="./EnMp3/4.mp3"></audio>
+  <span>/uː/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ʊ/"
+     data-type="后元音"
+     data-letters="u, oo"
+     data-examples="book, put, could"
+     data-tip="短元音，舌位靠后，口形微圆，发音短促">
+  <audio src="./EnMp3/3.mp3"></audio>
+  <span>/ʊ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ɔː/"
+     data-type="后元音"
+     data-letters="aw, or, au, al, ou"
+     data-examples="law, talk, thought"
+     data-tip="长元音，口形较大，舌后抬高，发音饱满">
+  <audio src="./EnMp3/8.mp3"></audio>
+  <span>/ɔː/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ɒ/"
+     data-type="后元音"
+     data-letters="o, a"
+     data-examples="hot, dog, want"
+     data-tip="短元音，口形较大，舌后，英式常见，美式常用/ɑː/">
+  <audio src="./EnMp3/7.mp3"></audio>
+  <span>/ɒ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ɑː/"
+     data-type="后元音"
+     data-letters="a, ar"
+     data-examples="car, father, star"
+     data-tip="长元音，口张大，舌位最低最靠后，美式常用于hot等词">
+  <audio src="./EnMp3/6.mp3"></audio>
+  <span>/ɑː/</span>
+</div>
+        <!-- 双元音 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="phonetic-label font-semibold bg-blue-100 rounded-lg shadow p-1 px-3 inline-block my-1">双元音</div>
+        </div>
+      <div class="phonetic-card"
+     data-symbol="/eɪ/"
+     data-type="双元音"
+     data-letters="a, ai, ay, ei, ey"
+     data-examples="make, say, eight"
+     data-tip="从/e/滑向/ɪ/，如中文“诶”">
+  <audio src="./EnMp3/20.mp3"></audio>
+  <span>/eɪ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/aɪ/"
+     data-type="双元音"
+     data-letters="i, y, igh, ie"
+     data-examples="my, like, buy"
+     data-tip="从/a/滑向/ɪ/，如中文“哎”">
+  <audio src="./EnMp3/15.mp3"></audio>
+  <span>/aɪ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ɔɪ/"
+     data-type="双元音"
+     data-letters="oi, oy"
+     data-examples="boy, join"
+     data-tip="从/ɔ/滑向/ɪ/，如中文“喔咦”">
+  <audio src="./EnMp3/16.mp3"></audio>
+  <span>/ɔɪ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/aʊ/"
+     data-type="双元音"
+     data-letters="ou, ow"
+     data-examples="now, out, down"
+     data-tip="从/a/滑向/ʊ/，如中文“奥”">
+  <audio src="./EnMp3/19.mp3"></audio>
+  <span>/aʊ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/əʊ/"
+     data-type="双元音"
+     data-letters="o, oa, ow, ou"
+     data-examples="go, show, home"
+     data-tip="从/ə/滑向/ʊ/，英式用得多，美式多用/oʊ/">
+  <audio src="./EnMp3/17.mp3"></audio>
+  <span>/əʊ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ɪə/"
+     data-type="双元音"
+     data-letters="ear, eer, ere"
+     data-examples="ear, near, here"
+     data-tip="从/ɪ/滑向/ə/，如中文“衣儿”">
+  <audio src="./EnMp3/13.mp3"></audio>
+  <span>/ɪə/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/eə/"
+     data-type="双元音"
+     data-letters="air, ear, are"
+     data-examples="air, hair, care"
+     data-tip="从/e/滑向/ə/，如中文“诶儿”">
+  <audio src="./EnMp3/18.mp3"></audio>
+  <span>/eə/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ʊə/"
+     data-type="双元音"
+     data-letters="ure, our"
+     data-examples="pure, tour"
+     data-tip="从/ʊ/滑向/ə/，如中文“乌儿”，现代口语中用得较少">
+  <audio src="./EnMp3/14.mp3"></audio>
+  <span>/ʊə/</span>
+</div>
+
+
+        <!-- 辅音区 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4 mt-2 sm:mt-3">
+          <div class="text-blue-900 font-bold text-lg sm:text-xl md:text-2xl my-1 tracking-wide">辅音</div>
+        </div>
+        <!-- 各类辅音 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="phonetic-label font-semibold bg-blue-100 rounded-lg shadow p-1 px-3 inline-block my-1">爆破音</div>
+        </div>
+     <div class="phonetic-card"
+     data-symbol="/p/"
+     data-type="爆破音 清辅音"
+     data-letters="p, pp"
+     data-examples="pen, apple, happy"
+     data-tip="清音，双唇闭合后瞬间放开送气">
+  <audio src="./EnMp3/p.mp3"></audio>
+  <span>/p/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/t/"
+     data-type="爆破音 清辅音"
+     data-letters="t, tt, ed"
+     data-examples="tea, butter, stopped"
+     data-tip="清音，舌尖抵上齿龈后迅速离开">
+  <audio src="./EnMp3/t.mp3"></audio>
+  <span>/t/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/k/"
+     data-type="爆破音 清辅音"
+     data-letters="k, c, ck, ch, qu"
+     data-examples="key, cat, black, school"
+     data-tip="清音，舌后抵软腭，放开气流">
+  <audio src="./EnMp3/k.mp3"></audio>
+  <span>/k/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/b/"
+     data-type="爆破音 浊辅音"
+     data-letters="b, bb"
+     data-examples="bad, rabbit, number"
+     data-tip="浊音，双唇闭合，振动声带后放开">
+  <audio src="./EnMp3/b.mp3"></audio>
+  <span>/b/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/d/"
+     data-type="爆破音 浊辅音"
+     data-letters="d, dd, ed"
+     data-examples="dog, ladder, played"
+     data-tip="浊音，舌尖抵齿龈，振动声带后离开">
+  <audio src="./EnMp3/d.mp3"></audio>
+  <span>/d/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ɡ/"
+     data-type="爆破音 浊辅音"
+     data-letters="g, gg, gh, gu"
+     data-examples="go, bigger, ghost"
+     data-tip="浊音，舌后抵软腭，振动声带后放开">
+  <audio src="./EnMp3/g.mp3"></audio>
+  <span>/ɡ/</span>
+</div>
+
+        <!-- 摩擦音 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="phonetic-label font-semibold bg-blue-100 rounded-lg shadow p-1 px-3 inline-block my-1">摩擦音</div>
+        </div>
+      <div class="phonetic-card"
+     data-symbol="/f/"
+     data-type="摩擦音 清辅音"
+     data-letters="f, ph"
+     data-examples="fish, phone"
+     data-tip="清音，上齿轻触下唇，气流摩擦而出">
+  <audio src="./EnMp3/f.mp3"></audio>
+  <span>/f/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/s/"
+     data-type="摩擦音 清辅音"
+     data-letters="s, ss, c"
+     data-examples="see, glass, city"
+     data-tip="清音，舌尖靠近齿龈，气流摩擦">
+  <audio src="./EnMp3/s.mp3"></audio>
+  <span>/s/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ʃ/"
+     data-type="摩擦音 清辅音"
+     data-letters="sh, s, ch, ti"
+     data-examples="she, sure, machine"
+     data-tip="清音，舌面接近上齿龈后部，气流摩擦">
+  <audio src="./EnMp3/s1.mp3"></audio>
+  <span>/ʃ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/θ/"
+     data-type="摩擦音 清辅音"
+     data-letters="th"
+     data-examples="think, bath"
+     data-tip="清音，舌尖伸到上下齿间，气流摩擦">
+  <audio src="./EnMp3/th.mp3"></audio>
+  <span>/θ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/h/"
+     data-type="摩擦音 清辅音"
+     data-letters="h"
+     data-examples="he, hello, hat"
+     data-tip="清音，声门轻微打开，气流直接冲出">
+  <audio src="./EnMp3/h.mp3"></audio>
+  <span>/h/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/v/"
+     data-type="摩擦音 浊辅音"
+     data-letters="v"
+     data-examples="very, voice"
+     data-tip="浊音，上齿轻触下唇，声带振动">
+  <audio src="./EnMp3/v.mp3"></audio>
+  <span>/v/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/z/"
+     data-type="摩擦音 浊辅音"
+     data-letters="z, s, zz"
+     data-examples="zoo, has, jazz"
+     data-tip="浊音，舌尖靠近齿龈，声带振动">
+  <audio src="./EnMp3/z.mp3"></audio>
+  <span>/z/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ʒ/"
+     data-type="摩擦音 浊辅音"
+     data-letters="s, si, g"
+     data-examples="measure, vision, garage"
+     data-tip="浊音，舌面接近上齿龈后部，声带振动">
+  <audio src="./EnMp3/3.3.mp3"></audio>
+  <span>/ʒ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ð/"
+     data-type="摩擦音 浊辅音"
+     data-letters="th"
+     data-examples="this, mother, smooth"
+     data-tip="浊音，舌尖伸到上下齿间，声带振动">
+  <audio src="./EnMp3/th1.mp3"></audio>
+  <span>/ð/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/r/"
+     data-type="摩擦音 浊辅音"
+     data-letters="r, wr"
+     data-examples="red, write, carry"
+     data-tip="浊音，舌尖轻触上齿龈后部，卷舌或微振动">
+  <audio src="./EnMp3/r.mp3"></audio>
+  <span>/r/</span>
+</div>
+
+        <!-- 破擦音 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="phonetic-label font-semibold bg-blue-100 rounded-lg shadow p-1 px-3 inline-block my-1">破擦音</div>
+        </div>
+       <div class="phonetic-card"
+     data-symbol="/tʃ/"
+     data-type="破擦音 清辅音"
+     data-letters="ch, tch"
+     data-examples="check, match, teacher"
+     data-tip="清音，先爆破/t/，后摩擦/ʃ/，合成新音">
+  <audio src="./EnMp3/tss.mp3"></audio>
+  <span>/tʃ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/tr/"
+     data-type="破擦音 清辅音"
+     data-letters="tr"
+     data-examples="tree, train, try"
+     data-tip="清音，/t/与/r/连读，类似‘吹’的开头">
+  <audio src="./EnMp3/tr.mp3"></audio>
+  <span>/tr/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ts/"
+     data-type="破擦音 清辅音"
+     data-letters="ts"
+     data-examples="cats, bits, hats"
+     data-tip="清音，/t/后紧跟/s/，多出现在词尾">
+  <audio src="./EnMp3/ts.mp3"></audio>
+  <span>/ts/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/dʒ/"
+     data-type="破擦音 浊辅音"
+     data-letters="j, g, ge, dge"
+     data-examples="job, bridge, age"
+     data-tip="浊音，先爆破/d/，后摩擦/ʒ/，声带振动">
+  <audio src="./EnMp3/d3.mp3"></audio>
+  <span>/dʒ/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/dr/"
+     data-type="破擦音 浊辅音"
+     data-letters="dr"
+     data-examples="dream, drive, dry"
+     data-tip="浊音，/d/与/r/连读，发音连贯自然">
+  <audio src="./EnMp3/dr.mp3"></audio>
+  <span>/dr/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/dz/"
+     data-type="破擦音 浊辅音"
+     data-letters="ds, dz"
+     data-examples="kids, lids"
+     data-tip="浊音，/d/与/z/连读，常在词尾">
+  <audio src="./EnMp3/dz.mp3"></audio>
+  <span>/dz/</span>
+</div>
+
+        <!-- 鼻音 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="phonetic-label font-semibold bg-blue-100 rounded-lg shadow p-1 px-3 inline-block my-1">鼻音</div>
+        </div>
+      <div class="phonetic-card"
+     data-symbol="/m/"
+     data-type="鼻音 浊辅音"
+     data-letters="m, mm, mb, mn"
+     data-examples="man, summer, comb"
+     data-tip="浊音，双唇闭合，气流经鼻腔，声带振动">
+  <audio src="./EnMp3/m.mp3"></audio>
+  <span>/m/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/n/"
+     data-type="鼻音 浊辅音"
+     data-letters="n, nn, kn, gn"
+     data-examples="nice, dinner, know"
+     data-tip="浊音，舌尖抵上齿龈，气流经鼻腔，声带振动">
+  <audio src="./EnMp3/n.mp3"></audio>
+  <span>/n/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/ŋ/"
+     data-type="鼻音 浊辅音"
+     data-letters="ng, n"
+     data-examples="sing, long, think"
+     data-tip="浊音，舌后抵软腭，气流经鼻腔，常出现在词尾">
+  <audio src="./EnMp3/ng.mp3"></audio>
+  <span>/ŋ/</span>
+</div>
+
+        <!-- 舌侧音 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="phonetic-label font-semibold bg-blue-100 rounded-lg shadow p-1 px-3 inline-block my-1">舌侧音</div>
+        </div>
+     <div class="phonetic-card"
+     data-symbol="/l/"
+     data-type="舌侧音 浊辅音"
+     data-letters="l, ll, le, al"
+     data-examples="light, tell, able, walk"
+     data-tip="浊音，舌尖抵上齿龈，气流从舌两侧通过，声带振动">
+  <audio src="./EnMp3/l.mp3"></audio>
+  <span>/l/</span>
+</div>
+        <!-- 半元音 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="phonetic-label font-semibold bg-blue-100 rounded-lg shadow p-1 px-3 inline-block my-1">半元音</div>
+        </div>
+       <div class="phonetic-card"
+     data-symbol="/j/"
+     data-type="半元音 浊辅音"
+     data-letters="y, i"
+     data-examples="yes, yellow, onion"
+     data-tip="浊音，舌面接近上腭，发音近似元音/iː/，口形小，声带振动">
+  <audio src="./EnMp3/j.mp3"></audio>
+  <span>/j/</span>
+</div>
+
+<div class="phonetic-card"
+     data-symbol="/w/"
+     data-type="半元音 浊辅音"
+     data-letters="w, wh, u, o"
+     data-examples="we, one, window, queen"
+     data-tip="浊音，双唇略圆，舌背靠近软腭，发音近似元音/uː/，声带振动">
+  <audio src="./EnMp3/w.mp3"></audio>
+  <span>/w/</span>
+</div>
+      </div>
+      <footer class="mt-8 text-xs sm:text-sm text-gray-500 bg-blue-50/60 p-3 rounded-lg text-center shadow-inner">
+       
+      </footer>
+    </div>
+  </div>
+
+
+  <div id="phoneticModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 hidden">
+  <div class="bg-white rounded-2xl shadow-2xl px-7 py-5 w-[90vw] max-w-xs sm:max-w-sm relative">
+    <button id="closeModalBtn" class="absolute top-2 right-2 text-gray-400 hover:text-blue-600 text-lg">×</button>
+    <div id="modalContent"></div>
+  </div>
+</div>
+  <script>
+    document.querySelectorAll(".phonetic-card").forEach(item => {
+      const audio = item.querySelector("audio");
+      if (audio) {
+        item.addEventListener("click", function() {
+          audio.currentTime = 0;
+          audio.play();
+        });
+      } else {
+        item.classList.remove("cursor-pointer");
+        item.classList.add("text-gray-300");
+        item.setAttribute("title", "暂无音频");
+      }
+    });
+
+    document.querySelectorAll('.phonetic-card').forEach(card => {
+  card.addEventListener('click', function (e) {
+    // 播放音频
+    const audio = card.querySelector('audio');
+    if (audio) {
+      audio.currentTime = 0; audio.play();
+    }
+    // 弹窗内容填充
+    const symbol = card.getAttribute('data-symbol');
+    const type = card.getAttribute('data-type');
+    const letters = card.getAttribute('data-letters');
+    const examples = card.getAttribute('data-examples');
+    const tip = card.getAttribute('data-tip');
+    document.getElementById('modalContent').innerHTML = `
+      <div class="flex flex-col items-center">
+        <span class="text-3xl font-black text-blue-700 mb-1">${symbol}</span>
+        <span class="text-base font-bold text-blue-500 mb-2">${type}</span>
+        <div class="flex flex-row flex-wrap gap-2 justify-center mb-2">
+          <span class="bg-blue-100 text-blue-700 text-xs font-semibold rounded px-2 py-0.5">字母：${letters}</span>
+          <span class="bg-gray-100 text-gray-500 text-xs rounded px-2 py-0.5">例词：${examples}</span>
+        </div>
+        <span class="block text-sm text-gray-600 mt-2">${tip}</span>
+      </div>
+    `;
+    document.getElementById('phoneticModal').classList.remove('hidden');
+  });
+});
+
+// 弹窗关闭逻辑
+document.getElementById('closeModalBtn').onclick = () => {
+  document.getElementById('phoneticModal').classList.add('hidden');
+};
+document.getElementById('phoneticModal').addEventListener('click', function (e) {
+  if (e.target === this) this.classList.add('hidden');
+});
+  </script>
+</body>
+</html>

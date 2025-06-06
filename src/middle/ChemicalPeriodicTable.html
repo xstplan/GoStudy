@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script src="./js/html2canvas.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>化学元素周期表</title>
+   <link href="../css/output.css" rel="stylesheet">
+  <style>
+    .element-card {
+      transition: box-shadow .2s, background .2s;
+      cursor: pointer;
+      user-select: none;
+      border-radius: 0.6rem;
+      box-shadow: 0 2px 8px 0 rgba(56, 189, 248, 0.09);
+      border-width: 1.5px;
+      border-style: solid;
+      min-width: 2.6rem;
+      min-height: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.18rem 0.09rem 0.15rem 0.09rem;
+    }
+    .element-card[disabled] {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      cursor: default;
+    }
+    .element-symbol { font-size: 1.1rem; font-weight: bold; color: #1e293b; line-height: 1.1; }
+    .element-name { font-size: 1.02rem; font-weight: 400; color: #172554; }
+    .element-pinyin { font-size: .8rem; color: #64748b; margin-top: -2px; margin-bottom: -1px; }
+    .element-num { font-size: .7rem; color: #94a3b8; margin-bottom: -2px;}
+    .legend-label { display:inline-block;padding:2px 8px;margin:3px 2px 0 0;border-radius:0.45rem;font-size:0.85rem;font-weight:500;border-width:1.2px;}
+    @media (max-width: 700px) {
+      .element-card { min-width: 2.1rem; min-height: 2.3rem; padding: 0.07rem 0.07rem;}
+      .element-symbol { font-size: 0.91rem;}
+      .element-name { font-size: 0.87rem;}
+      .element-pinyin { font-size: 0.7rem;}
+      .element-num { font-size: 0.6rem;}
+    }
+    #body{
+      margin: 15px;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen" id="body">
+ <button onclick="location.href='../home-middle.html'"
+          class="px-4 py-1 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 shadow text-sm transition">
+          ← 返回小学知识天地
+        </button>
+<div class="flex flex-col items-center mt-5 sm:mt-8">
+  <div>
+      
+        
+  <h1 class="text-3xl sm:text-4xl font-extrabold text-blue-700 drop-shadow mb-2">化学元素周期表</h1>
+  <p class="text-gray-500 text-base mb-3">化学元素周期表顺序拼音参考权威周期表</p>
+  </div>
+  <div class="mb-2 flex flex-wrap items-center justify-center text-sm">
+    <!-- 图例 -->
+    <span class="legend-label bg-pink-100 border-pink-300 text-pink-700">碱金属</span>
+    <span class="legend-label bg-yellow-100 border-yellow-300 text-yellow-800">碱土金属</span>
+    <span class="legend-label bg-blue-100 border-blue-400 text-blue-700">稀有气体</span>
+    <span class="legend-label bg-green-100 border-green-300 text-green-700">卤素</span>
+    <span class="legend-label bg-cyan-100 border-cyan-300 text-cyan-800">其他非金属</span>
+    <span class="legend-label bg-lime-100 border-lime-300 text-lime-800">类金属</span>
+    <span class="legend-label bg-orange-100 border-orange-300 text-orange-800">后过渡金属</span>
+    <span class="legend-label bg-violet-100 border-violet-300 text-violet-800">过渡金属</span>
+    <span class="legend-label bg-purple-100 border-purple-300 text-purple-800">镧系</span>
+    <span class="legend-label bg-gray-200 border-gray-400 text-gray-700">锕系</span>
+    <span class="legend-label bg-white border-gray-200 text-gray-700">其他</span>
+  </div>
+  <button id="download-btn"
+  class="mt-3 mb-4 px-4 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition">
+  下载周期表为图片
+</button>
+<div class="w-full overflow-x-auto">
+  <div class="min-w-[950px] mx-auto">
+    <div id="periodic-table"
+      class="gap-[2px]"
+      style="display:grid;grid-template-columns:repeat(18,minmax(0,1fr));">
+      <!-- ...元素... -->
+    </div>
+    <!-- 脚注区域 -->
+    <footer class="mt-4 text-xs sm:text-sm text-gray-500 bg-blue-50/60 p-3 rounded-lg text-center shadow-inner">
+      <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 list-none p-0 m-0">
+        <li>
+          数据来源：<a href="https://pubchem.ncbi.nlm.nih.gov/" target="_blank" class="text-blue-600 underline hover:text-blue-800">PubChem</a>
+        </li>
+        <li>
+        作者：<a href="https://www.xstplan.com" target="_blank" class="text-blue-600 underline hover:text-blue-800">www.xstplan.com</a>
+        </li>
+   
+        <li>
+          更新时间：<span id="update-time"></span>
+        </li>
+      </ul>
+    </footer>
+  </div>
+</div>
+</div>
+<script>
+  // 自动更新时间
+  document.getElementById('update-time').textContent =
+    new Date().toLocaleDateString();
+</script>
+<script>
+const typeColorMap = {
+  "alkali":      "bg-pink-100 border-pink-300 text-pink-700",
+  "alkaline":    "bg-yellow-100 border-yellow-300 text-yellow-800",
+  "noble":       "bg-blue-100 border-blue-400 text-blue-700",
+  "halogen":     "bg-green-100 border-green-300 text-green-700",
+  "nonmetal":    "bg-cyan-100 border-cyan-300 text-cyan-800",
+  "metalloid":   "bg-lime-100 border-lime-300 text-lime-800",
+  "posttrans":   "bg-orange-100 border-orange-300 text-orange-800",
+  "transition":  "bg-violet-100 border-violet-300 text-violet-800",
+  "lanthanide":  "bg-purple-100 border-purple-300 text-purple-800",
+  "actinide":    "bg-gray-200 border-gray-400 text-gray-700",
+  "other":       "bg-white border-gray-200 text-gray-700"
+};
+
+const tableGrid = [
+  // 周期1
+  [
+    { symbol: "H", name: "氢", pinyin: "qīng", num: 1, type: "nonmetal" },
+    ...Array(16).fill(null),
+    { symbol: "He", name: "氦", pinyin: "hài", num: 2, type: "noble" }
+  ],
+  // 周期2
+  [
+    { symbol: "Li", name: "锂", pinyin: "lǐ", num: 3, type: "alkali" },
+    { symbol: "Be", name: "铍", pinyin: "pí", num: 4, type: "alkaline" },
+    ...Array(10).fill(null),
+    { symbol: "B", name: "硼", pinyin: "péng", num: 5, type: "metalloid" },
+    { symbol: "C", name: "碳", pinyin: "tàn", num: 6, type: "nonmetal" },
+    { symbol: "N", name: "氮", pinyin: "dàn", num: 7, type: "nonmetal" },
+    { symbol: "O", name: "氧", pinyin: "yǎng", num: 8, type: "nonmetal" },
+    { symbol: "F", name: "氟", pinyin: "fú", num: 9, type: "halogen" },
+    { symbol: "Ne", name: "氖", pinyin: "nǎi", num: 10, type: "noble" }
+  ],
+  // 周期3
+  [
+    { symbol: "Na", name: "钠", pinyin: "nà", num: 11, type: "alkali" },
+    { symbol: "Mg", name: "镁", pinyin: "měi", num: 12, type: "alkaline" },
+    ...Array(10).fill(null),
+    { symbol: "Al", name: "铝", pinyin: "lǚ", num: 13, type: "posttrans" },
+    { symbol: "Si", name: "硅", pinyin: "guī", num: 14, type: "metalloid" },
+    { symbol: "P", name: "磷", pinyin: "lín", num: 15, type: "nonmetal" },
+    { symbol: "S", name: "硫", pinyin: "liú", num: 16, type: "nonmetal" },
+    { symbol: "Cl", name: "氯", pinyin: "lǜ", num: 17, type: "halogen" },
+    { symbol: "Ar", name: "氩", pinyin: "yà", num: 18, type: "noble" }
+  ],
+  // 周期4
+  [
+    { symbol: "K", name: "钾", pinyin: "jiǎ", num: 19, type: "alkali" },
+    { symbol: "Ca", name: "钙", pinyin: "gài", num: 20, type: "alkaline" },
+    { symbol: "Sc", name: "钪", pinyin: "kàng", num: 21, type: "transition" },
+    { symbol: "Ti", name: "钛", pinyin: "tài", num: 22, type: "transition" },
+    { symbol: "V", name: "钒", pinyin: "fán", num: 23, type: "transition" },
+    { symbol: "Cr", name: "铬", pinyin: "gè", num: 24, type: "transition" },
+    { symbol: "Mn", name: "锰", pinyin: "měng", num: 25, type: "transition" },
+    { symbol: "Fe", name: "铁", pinyin: "tiě", num: 26, type: "transition" },
+    { symbol: "Co", name: "钴", pinyin: "gǔ", num: 27, type: "transition" },
+    { symbol: "Ni", name: "镍", pinyin: "niè", num: 28, type: "transition" },
+    { symbol: "Cu", name: "铜", pinyin: "tóng", num: 29, type: "transition" },
+    { symbol: "Zn", name: "锌", pinyin: "xīn", num: 30, type: "posttrans" },
+    { symbol: "Ga", name: "镓", pinyin: "jiā", num: 31, type: "posttrans" },
+    { symbol: "Ge", name: "锗", pinyin: "zhě", num: 32, type: "metalloid" },
+    { symbol: "As", name: "砷", pinyin: "shēn", num: 33, type: "metalloid" },
+    { symbol: "Se", name: "硒", pinyin: "xī", num: 34, type: "nonmetal" },
+    { symbol: "Br", name: "溴", pinyin: "xiù", num: 35, type: "halogen" },
+    { symbol: "Kr", name: "氪", pinyin: "kè", num: 36, type: "noble" }
+  ],
+  // 周期5
+  [
+    { symbol: "Rb", name: "铷", pinyin: "rú", num: 37, type: "alkali" },
+    { symbol: "Sr", name: "锶", pinyin: "sī", num: 38, type: "alkaline" },
+    { symbol: "Y", name: "钇", pinyin: "yǐ", num: 39, type: "transition" },
+    { symbol: "Zr", name: "锆", pinyin: "gào", num: 40, type: "transition" },
+    { symbol: "Nb", name: "铌", pinyin: "ní", num: 41, type: "transition" },
+    { symbol: "Mo", name: "钼", pinyin: "mù", num: 42, type: "transition" },
+    { symbol: "Tc", name: "锝", pinyin: "dé", num: 43, type: "transition" },
+    { symbol: "Ru", name: "钌", pinyin: "liǎo", num: 44, type: "transition" },
+    { symbol: "Rh", name: "铑", pinyin: "lǎo", num: 45, type: "transition" },
+    { symbol: "Pd", name: "钯", pinyin: "bǎ", num: 46, type: "transition" },
+    { symbol: "Ag", name: "银", pinyin: "yín", num: 47, type: "transition" },
+    { symbol: "Cd", name: "镉", pinyin: "gé", num: 48, type: "posttrans" },
+    { symbol: "In", name: "铟", pinyin: "yīn", num: 49, type: "posttrans" },
+    { symbol: "Sn", name: "锡", pinyin: "xī", num: 50, type: "posttrans" },
+    { symbol: "Sb", name: "锑", pinyin: "tī", num: 51, type: "metalloid" },
+    { symbol: "Te", name: "碲", pinyin: "dì", num: 52, type: "metalloid" },
+    { symbol: "I", name: "碘", pinyin: "diǎn", num: 53, type: "halogen" },
+    { symbol: "Xe", name: "氙", pinyin: "xiān", num: 54, type: "noble" }
+  ],
+  // 周期6
+  [
+    { symbol: "Cs", name: "铯", pinyin: "sè", num: 55, type: "alkali" },
+    { symbol: "Ba", name: "钡", pinyin: "bèi", num: 56, type: "alkaline" },
+    { symbol: "La", name: "镧", pinyin: "lán", num: 57, type: "lanthanide" },
+    ...Array(11).fill(null),
+    { symbol: "Hf", name: "铪", pinyin: "hā", num: 72, type: "transition" },
+    { symbol: "Ta", name: "钽", pinyin: "tǎn", num: 73, type: "transition" },
+    { symbol: "W", name: "钨", pinyin: "wū", num: 74, type: "transition" },
+    { symbol: "Re", name: "铼", pinyin: "lái", num: 75, type: "transition" },
+    { symbol: "Os", name: "锇", pinyin: "é", num: 76, type: "transition" },
+    { symbol: "Ir", name: "铱", pinyin: "yī", num: 77, type: "transition" },
+    { symbol: "Pt", name: "铂", pinyin: "bó", num: 78, type: "transition" },
+    { symbol: "Au", name: "金", pinyin: "jīn", num: 79, type: "transition" },
+    { symbol: "Hg", name: "汞", pinyin: "gǒng", num: 80, type: "posttrans" },
+    { symbol: "Tl", name: "铊", pinyin: "tā", num: 81, type: "posttrans" },
+    { symbol: "Pb", name: "铅", pinyin: "qiān", num: 82, type: "posttrans" },
+    { symbol: "Bi", name: "铋", pinyin: "bì", num: 83, type: "posttrans" },
+    { symbol: "Po", name: "钋", pinyin: "pō", num: 84, type: "posttrans" },
+    { symbol: "At", name: "砹", pinyin: "ài", num: 85, type: "halogen" },
+    { symbol: "Rn", name: "氡", pinyin: "dōng", num: 86, type: "noble" }
+  ],
+  // 周期7
+  [
+    { symbol: "Fr", name: "钫", pinyin: "fāng", num: 87, type: "alkali" },
+    { symbol: "Ra", name: "镭", pinyin: "léi", num: 88, type: "alkaline" },
+    { symbol: "Ac", name: "锕", pinyin: "ā", num: 89, type: "actinide" },
+    ...Array(11).fill(null),
+    { symbol: "Rf", name: "𬬻", pinyin: "hū", num: 104, type: "transition" },
+    { symbol: "Db", name: "𬭊", pinyin: "dù", num: 105, type: "transition" },
+    { symbol: "Sg", name: "𬭳", pinyin: "xī", num: 106, type: "transition" },
+    { symbol: "Bh", name: "𬭛", pinyin: "dá", num: 107, type: "transition" },
+    { symbol: "Hs", name: "𬭶", pinyin: "ài", num: 108, type: "transition" },
+    { symbol: "Mt", name: "鿏", pinyin: "méi", num: 109, type: "transition" },
+    { symbol: "Ds", name: "𬭹", pinyin: "dǎ", num: 110, type: "transition" },
+    { symbol: "Rg", name: "錀", pinyin: "lún", num: 111, type: "transition" },
+    { symbol: "Cn", name: "鎶", pinyin: "gē", num: 112, type: "posttrans" },
+    { symbol: "Fl", name: "鈇", pinyin: "fū", num: 114, type: "posttrans" },
+    { symbol: "Lv", name: "鉝", pinyin: "lì", num: 116, type: "posttrans" },
+    { symbol: "Ts", name: "Ts", pinyin: "tēn", num: 117, type: "halogen" },
+    { symbol: "Og", name: "Og", pinyin: "ào", num: 118, type: "noble" }
+  ],
+  // 镧系
+  [
+    ...Array(2).fill(null),
+    { symbol: "Ce", name: "铈", pinyin: "shì", num: 58, type: "lanthanide" },
+    { symbol: "Pr", name: "镨", pinyin: "pǔ", num: 59, type: "lanthanide" },
+    { symbol: "Nd", name: "钕", pinyin: "nǚ", num: 60, type: "lanthanide" },
+    { symbol: "Pm", name: "钷", pinyin: "pǒ", num: 61, type: "lanthanide" },
+    { symbol: "Sm", name: "钐", pinyin: "shǎn", num: 62, type: "lanthanide" },
+    { symbol: "Eu", name: "铕", pinyin: "yǒu", num: 63, type: "lanthanide" },
+    { symbol: "Gd", name: "钆", pinyin: "gá", num: 64, type: "lanthanide" },
+    { symbol: "Tb", name: "铽", pinyin: "tè", num: 65, type: "lanthanide" },
+    { symbol: "Dy", name: "镝", pinyin: "dī", num: 66, type: "lanthanide" },
+    { symbol: "Ho", name: "钬", pinyin: "huǒ", num: 67, type: "lanthanide" },
+    { symbol: "Er", name: "铒", pinyin: "ěr", num: 68, type: "lanthanide" },
+    { symbol: "Tm", name: "铥", pinyin: "diū", num: 69, type: "lanthanide" },
+    { symbol: "Yb", name: "镱", pinyin: "yì", num: 70, type: "lanthanide" },
+    { symbol: "Lu", name: "镥", pinyin: "lǔ", num: 71, type: "lanthanide" },
+    ...Array(3).fill(null)
+  ],
+  // 锕系
+  [
+    ...Array(2).fill(null),
+    { symbol: "Th", name: "钍", pinyin: "tǔ", num: 90, type: "actinide" },
+    { symbol: "Pa", name: "镤", pinyin: "pú", num: 91, type: "actinide" },
+    { symbol: "U", name: "铀", pinyin: "yóu", num: 92, type: "actinide" },
+    { symbol: "Np", name: "镎", pinyin: "ná", num: 93, type: "actinide" },
+    { symbol: "Pu", name: "钚", pinyin: "bù", num: 94, type: "actinide" },
+    { symbol: "Am", name: "镅", pinyin: "méi", num: 95, type: "actinide" },
+    { symbol: "Cm", name: "锔", pinyin: "jū", num: 96, type: "actinide" },
+    { symbol: "Bk", name: "锫", pinyin: "péi", num: 97, type: "actinide" },
+    { symbol: "Cf", name: "锎", pinyin: "kāi", num: 98, type: "actinide" },
+    { symbol: "Es", name: "锿", pinyin: "āi", num: 99, type: "actinide" },
+    { symbol: "Fm", name: "镄", pinyin: "fèi", num: 100, type: "actinide" },
+    { symbol: "Md", name: "钔", pinyin: "mén", num: 101, type: "actinide" },
+    { symbol: "No", name: "锘", pinyin: "nuò", num: 102, type: "actinide" },
+    { symbol: "Lr", name: "铹", pinyin: "láo", num: 103, type: "actinide" },
+    ...Array(3).fill(null)
+  ]
+];
+
+// 渲染
+const grid = document.getElementById("periodic-table");
+for (const row of tableGrid) {
+  for (const el of row) {
+    if (el) {
+      const color = typeColorMap[el.type] || typeColorMap["other"];
+      grid.innerHTML += `
+        <div class="element-card ${color}">
+          <div class="element-symbol">${el.symbol}</div>
+          <div class="element-name">${el.name}</div>
+          <div class="element-pinyin">(${el.pinyin})</div>
+          <div class="element-num">${el.num}</div>
+        </div>
+      `;
+    } else {
+      grid.innerHTML += `<div class="element-card" disabled style="background:transparent;border:none;box-shadow:none;"></div>`;
+    }
+  }
+}
+</script>
+
+<script>
+document.getElementById('download-btn').onclick = function() {
+  const target = document.querySelector('html'); // 根据实际容器选择器调整
+  html2canvas(target, {
+    useCORS: true,
+    scale: 2,
+    backgroundColor: null
+  }).then(canvas => {
+    // 下载图片
+    const link = document.createElement('a');
+    link.download = 'periodic-table.png';
+    link.href = canvas.toDataURL();
+    link.click();
+  });
+};
+</script>
+</body>
+</html>

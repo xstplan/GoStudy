@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>初中数学公式表</title>
+
+  <style>
+    .formula-section-title {
+      @apply text-xl font-bold mb-2 pl-3 border-l-4;
+    }
+    .formula-card {
+      @apply rounded-2xl shadow bg-white border p-5 flex flex-col justify-center items-start transition hover:shadow-lg;
+      min-height: 110px;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen">
+  <!-- 返回按钮 -->
+  <div class="w-full max-w-4xl mx-auto mt-4">
+    <button onclick="location.href='../home-middle.html'"
+      class="px-4 py-1 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 shadow text-sm transition mb-4">
+      ← 返回初中知识天地
+    </button>
+  </div>
+  <div class="max-w-4xl mx-auto mt-2 sm:mt-6 px-2 sm:px-6 py-6 bg-white/90 rounded-3xl shadow-2xl">
+  <div class="flex flex-col items-center mb-10">
+    <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-green-500 to-purple-500 mb-3 drop-shadow-lg">初中数学公式表</h1>
+    <p class="text-lg text-gray-500 text-center font-medium">常用初中数学公式分门别类一览</p>
+  </div>
+
+  <!-- 公式分区，带大色块标题和分隔线 -->
+  <section class="mb-10">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="h-8 w-2 rounded bg-gradient-to-b from-yellow-300 to-yellow-400"></div>
+      <div class="text-2xl font-bold text-yellow-700 tracking-wide">代数公式</div>
+      <div class="flex-grow border-b border-yellow-200 ml-2"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="formula-card2 bg-yellow-50 border-yellow-200">
+        <div class="font-bold text-yellow-700 mb-1">完全平方公式</div>
+        <div class="formula-math text-xl">$(a+b)^2 = a^2 + 2ab + b^2$</div>
+      </div>
+      <div class="formula-card2 bg-yellow-50 border-yellow-200">
+        <div class="font-bold text-yellow-700 mb-1">平方差公式</div>
+        <div class="formula-math text-xl">$a^2 - b^2 = (a-b)(a+b)$</div>
+      </div>
+      <div class="formula-card2 bg-yellow-50 border-yellow-200">
+        <div class="font-bold text-yellow-700 mb-1">立方和公式</div>
+        <div class="formula-math text-xl">$a^3 + b^3 = (a+b)(a^2 - ab + b^2)$</div>
+      </div>
+      <div class="formula-card2 bg-yellow-50 border-yellow-200">
+        <div class="font-bold text-yellow-700 mb-1">立方差公式</div>
+        <div class="formula-math text-xl">$a^3 - b^3 = (a-b)(a^2 + ab + b^2)$</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="h-8 w-2 rounded bg-gradient-to-b from-green-300 to-green-400"></div>
+      <div class="text-2xl font-bold text-green-700 tracking-wide">几何公式</div>
+      <div class="flex-grow border-b border-green-200 ml-2"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="formula-card2 bg-green-50 border-green-200">
+        <div class="font-bold text-green-700 mb-1">三角形面积</div>
+        <div class="formula-math text-xl">$S = \\frac{1}{2}ab \\sin C$</div>
+      </div>
+      <div class="formula-card2 bg-green-50 border-green-200">
+        <div class="font-bold text-green-700 mb-1">梯形面积</div>
+        <div class="formula-math text-xl">$S = \\frac{(a+b)h}{2}$</div>
+      </div>
+      <div class="formula-card2 bg-green-50 border-green-200">
+        <div class="font-bold text-green-700 mb-1">圆的面积</div>
+        <div class="formula-math text-xl">$S = \\pi r^2$</div>
+      </div>
+      <div class="formula-card2 bg-green-50 border-green-200">
+        <div class="font-bold text-green-700 mb-1">圆的周长</div>
+        <div class="formula-math text-xl">$C = 2\\pi r$</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="h-8 w-2 rounded bg-gradient-to-b from-blue-300 to-blue-500"></div>
+      <div class="text-2xl font-bold text-blue-700 tracking-wide">三角公式</div>
+      <div class="flex-grow border-b border-blue-200 ml-2"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="formula-card2 bg-blue-50 border-blue-200">
+        <div class="font-bold text-blue-700 mb-1">正弦平方公式</div>
+        <div class="formula-math text-xl">$\sin^2\\theta + \\cos^2\\theta = 1$</div>
+      </div>
+      <div class="formula-card2 bg-blue-50 border-blue-200">
+        <div class="font-bold text-blue-700 mb-1">正切定义</div>
+        <div class="formula-math text-xl">$\\tan \\theta = \\frac{\\sin \\theta}{\\cos \\theta}$</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <div class="flex items-center gap-3 mb-4">
+      <div class="h-8 w-2 rounded bg-gradient-to-b from-pink-300 to-pink-500"></div>
+      <div class="text-2xl font-bold text-pink-700 tracking-wide">函数公式</div>
+      <div class="flex-grow border-b border-pink-200 ml-2"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="formula-card2 bg-pink-50 border-pink-200">
+        <div class="font-bold text-pink-700 mb-1">一次函数表达式</div>
+        <div class="formula-math text-xl">$y = kx + b$</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="flex items-center gap-3 mb-4">
+      <div class="h-8 w-2 rounded bg-gradient-to-b from-purple-300 to-purple-500"></div>
+      <div class="text-2xl font-bold text-purple-700 tracking-wide">概率统计公式</div>
+      <div class="flex-grow border-b border-purple-200 ml-2"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="formula-card2 bg-purple-50 border-purple-200">
+        <div class="font-bold text-purple-700 mb-1">概率公式</div>
+        <div class="formula-math text-xl">$P(A) = \\frac{A\\text{的可能结果数}}{\\text{总结果数}}$</div>
+      </div>
+      <div class="formula-card2 bg-purple-50 border-purple-200">
+        <div class="font-bold text-purple-700 mb-1">平均数</div>
+        <div class="formula-math text-xl">$\overline{x} = \\frac{x_1 + x_2 + \cdots + x_n}{n}$</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- 公式卡片自定义样式 -->
+<style>
+.formula-card2 {
+  border-width: 1.5px;
+  border-radius: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,.04);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 80px;
+  background: #fff;
+  transition: box-shadow 0.16s;
+}
+.formula-card2:hover {
+  box-shadow: 0 8px 24px 0 rgba(59,130,246,.08);
+}
+.formula-math {
+  font-family: 'Consolas', 'Menlo', 'monospace', 'serif';
+}
+</style>
+  <link href="../css/tailwind.css" rel="stylesheet">
+ <link rel="stylesheet" href="../js/katex/katex.css">
+<script src="../js/katex/katex.min.js"></script>
+<script src="../js/katex/contrib/auto-render.min.js"></script>
+  <script>
+    // 自动渲染所有含 $...$ 的公式
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "$", right: "$", display: false}
+        ]
+      });
+      // 更新时间
+      document.getElementById('update-time').innerText = new Date().toISOString().slice(0, 10);
+    });
+    // 下载为图片（可选实现，依赖html2canvas库，如需加请告知）
+    document.getElementById('download-btn').onclick = function() {
+      alert('截图下载功能可通过 html2canvas 等前端库实现，如需集成请告知！');
+    }
+  </script>
+  <style>
+    .legend-label {
+      display: inline-block;
+      margin-right: 8px;
+      margin-bottom: 6px;
+      padding: 2px 10px;
+      border-radius: 0.75rem;
+      border-width: 1.5px;
+      font-weight: 500;
+      min-width: 60px;
+      text-align: center;
+      box-shadow: 0 1px 2px 0 #0001;
+    }
+  </style>
+</body>
+</html>

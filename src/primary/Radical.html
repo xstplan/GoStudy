@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>汉字田字格部首表</title>
+   <link href="../css/output.css" rel="stylesheet">
+   <script src="../primary/Data/char_base.js"></script>
+</head>
+<body class="bg-gradient-to-br from-orange-50 to-yellow-50 min-h-screen">
+  <div class="flex justify-center items-start mt-8 md:mt-16">
+    <div class="w-full max-w-4xl bg-white/90 rounded-3xl shadow-xl p-4 sm:p-8 mx-0 sm:mx-2">
+      <p class="text-3xl sm:text-4xl font-extrabold mb-2 text-center text-orange-700 drop-shadow">
+        汉字田字格部首表
+      </p>
+      <hr class="my-4 border-orange-200">
+      <p class="text-base sm:text-lg text-gray-600 mb-6 p-2 bg-orange-50/70 rounded-lg text-center shadow-sm">
+        自动加载 <code>data/char_base.json</code>，展示所有部首，点击可查看拼音与笔画等详情。
+      </p>
+
+      <!-- 部首格子容器 -->
+      <div class="bushou-table">
+        <div id="bushou-container" class="flex flex-wrap gap-2"></div>
+      </div>
+
+      <footer class="mt-6 text-xs text-gray-500 bg-orange-50/80 p-3 rounded-lg text-center shadow-inner">
+        &copy; 2025 学习喽
+      </footer>
+    </div>
+  </div>
+
+  <!-- 模态框 -->
+  <div id="bushou-modal" class="fixed left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border border-green-500 rounded-xl shadow-lg p-4 w-64 hidden z-50">
+    <div class="text-2xl font-bold text-black mb-2" id="modal-char"></div>
+    <div class="text-base text-gray-700 mb-1" id="modal-pinyin"></div>
+    <div class="text-sm text-gray-700 mb-1" id="modal-strokes"></div>
+    <div class="text-sm text-gray-500" id="modal-structure"></div>
+    <button class="mt-4 px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600" onclick="closeModal()">关闭</button>
+  </div>
+
+  <script>
+    // 结构代码简单释义表，仅供参考（可扩充/本地化）
+    const structureMap = {
+      'D0': '独体结构',
+      'B0': '上下结构',
+      'B2': '左右结构',
+      'B3': '左中右结构',
+      'H0': '包围结构',
+      'H2': '左右结构（偏旁）',
+      'Q0': '全包围结构',
+      'M0': '半包围结构'
+   
+    };
+
+    // 是否仅显示所有的“部首”本身？还是所有汉字？（true=只显示部首，false=所有汉字）
+    const onlyBushou = true;
+
+    // 加载json文件并渲染
+    fetch('data/char_base.json')
+      .then(res => res.json())
+      .then(data => {
+        // 只筛选“部首”，最简单就是：部首==自己、且笔画数较小（可按你需求自定义）
+        let list = data;
+        if (onlyBushou) {
+          // 比如：部首==自身，且频率=0/1（你可自定义标准）
+          list = data.filter(item =>
+            item.radicals === item.char &&
+            item.strokes <= 8 // 你可根据需要调整
+          );
+        }
+
+        // 按笔画数排序
+        list.sort((a, b) => a.strokes - b.strokes);
+
+        const container = document.getElementById('bushou-container');
+        container.innerHTML = '';
+        list.forEach(item => {
+          const div = document.createElement('div');
+          div.className = 'bushou-box relative w-20 h-20 border border-green-500 cursor-pointer bg-white hover:bg-green-50 transition';
+          div.innerHTML = `
+            <div class="absolute left-1/2 top-0 bottom-0 border-l border-green-500 border-dashed transform -translate-x-1/2"></div>
+            <div class="absolute top-1/2 left-0 right-0 border-t border-green-500 border-dashed transform -translate-y-1/2"></div>
+            <div class="flex flex-col items-center justify-center w-full h-full text-black font-bold text-3xl">
+              ${item.char}
+              <span class="text-xs text-gray-500 mt-1">${Array.isArray(item.pinyin) ? item.pinyin.join(', ') : item.pinyin} · ${item.strokes}画</span>
+            </div>
+          `;
+          div.onclick = () => showModal(item);
+          container.appendChild(div);
+        });
+      })
+      .catch(e => {
+        document.getElementById('bushou-container').innerHTML =
+          '<div class="text-red-500 p-4">无法加载 data/char_base.json，请确保文件存在并允许本地读取。</div>';
+      });
+
+    function showModal(item) {
+      document.getElementById('modal-char').textContent = item.char;
+      document.getElementById('modal-pinyin').textContent = '拼音：' + (Array.isArray(item.pinyin) ? item.pinyin.join(', ') : item.pinyin);
+      document.getElementById('modal-strokes').textContent = '笔画数：' + item.strokes;
+      document.getElementById('modal-structure').textContent =
+        '结构：' + (structureMap[item.structure] || item.structure || '');
+      document.getElementById('bushou-modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('bushou-modal').classList.add('hidden');
+    }
+
+    // 只允许点击模态框外关闭
+    document.addEventListener('click', function (event) {
+      const modal = document.getElementById('bushou-modal');
+      const isInsideModal = modal.contains(event.target);
+      const isBushouBox = event.target.closest('.bushou-box');
+      if (!modal.classList.contains('hidden') && !isInsideModal && !isBushouBox) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <title>汉语拼音表</title>
+  <link href="../css/tailwind.css" rel="stylesheet">
+  <style>
+    .pinyin-card {
+      @apply bg-white rounded-2xl shadow-md px-2 sm:px-4 py-3 flex flex-col items-center justify-center mb-2 border border-green-100 transition duration-200;
+      cursor: pointer;
+      box-shadow: 0 2px 10px 0 rgba(34,197,94,0.10), 0 0.5px 1.5px 0 rgba(16, 185, 129, 0.08);
+      will-change: transform, box-shadow;
+      border-radius: 15px;
+    }
+    .pinyin-card:hover, .pinyin-card:active {
+      box-shadow: 0 8px 32px 0 rgba(22,163,74,0.20), 0 2px 8px 0 rgba(34,197,94,0.13);
+      border-color: #4ade80;
+      background: linear-gradient(105deg, #d1fae5 70%, #fff 100%);
+    }
+    .pinyin-card span {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #059669;
+      margin-bottom: 0.3em;
+      margin-top: 0.1em;
+      text-shadow: 0 1px 1.5px #e0f2f1;
+    }
+    .pinyin-label {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 0.1em;
+      margin-top: -0.5em;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+      width: 38%;
+      background: #059669;
+    }
+    body {
+      background: white !important;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-green-50 to-blue-100 min-h-screen">
+
+  <div class="flex justify-center items-start mt-6 md:mt-16">
+    <div class="w-full max-w-4xl bg-white/80 rounded-3xl shadow-xl p-2 sm:p-6 md:p-8 mx-0 sm:mx-2">
+      <div>
+        <button onclick="location.href='../home-primary.html'"
+          class="px-4 py-1 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 shadow text-sm transition">
+          ← 返回小学知识天地
+        </button>
+        <p class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-1 text-center tracking-tight text-green-700 drop-shadow">
+          汉语拼音表
+        </p>
+        <hr class="my-2 sm:my-4 border-green-200">
+        <p class="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 p-2 sm:p-3 bg-green-50/70 rounded-lg text-center shadow-sm">
+          点击每个拼音卡片即可发音，涵盖全部声母、韵母和整体认读音节。
+        </p>
+      </div>
+      <!-- 拼音分区 -->
+      <div class="mt-2 mb-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 text-center">
+        <!-- 声母 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4">
+          <div class="pinyin-label font-semibold bg-green-400 rounded-lg shadow p-1 px-3 inline-block my-1">声母</div>
+        </div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/b.mp3"></audio><span>b</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/p.mp3"></audio><span>p</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/m.mp3"></audio><span>m</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/f.mp3"></audio><span>f</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/d.mp3"></audio><span>d</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/t.mp3"></audio><span>t</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/n.mp3"></audio><span>n</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/l.mp3"></audio><span>l</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/g.mp3"></audio><span>g</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/k.mp3"></audio><span>k</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/h.mp3"></audio><span>h</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/j.mp3"></audio><span>j</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/q.mp3"></audio><span>q</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/x.mp3"></audio><span>x</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/zh.mp3"></audio><span>zh</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ch.mp3"></audio><span>ch</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/sh.mp3"></audio><span>sh</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/r.mp3"></audio><span>r</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/z.mp3"></audio><span>z</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/c.mp3"></audio><span>c</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/s.mp3"></audio><span>s</span></div>
+        <!-- 韵母 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4 mt-2">
+          <div class="pinyin-label font-semibold bg-green-400 rounded-lg shadow p-1 px-3 inline-block my-1">韵母</div>
+        </div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/a.mp3"></audio><span>a</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/o.mp3"></audio><span>o</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/e.mp3"></audio><span>e</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/i.mp3"></audio><span>i</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/u.mp3"></audio><span>u</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ü.mp3"></audio><span>ü</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ai.mp3"></audio><span>ai</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ei.mp3"></audio><span>ei</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ui.mp3"></audio><span>ui</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ao.mp3"></audio><span>ao</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ou.mp3"></audio><span>ou</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/iu.mp3"></audio><span>iu</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ie.mp3"></audio><span>ie</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/üe.mp3"></audio><span>üe</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/er.mp3"></audio><span>er</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/an.mp3"></audio><span>an</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/en.mp3"></audio><span>en</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/in.mp3"></audio><span>in</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/un.mp3"></audio><span>un</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ün.mp3"></audio><span>ün</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ang.mp3"></audio><span>ang</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/eng.mp3"></audio><span>eng</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ing.mp3"></audio><span>ing</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ong.mp3"></audio><span>ong</span></div>
+        <!-- 整体认读音节 -->
+        <div class="col-span-2 sm:col-span-3 md:col-span-4 mt-2">
+          <div class="pinyin-label font-semibold bg-green-400 rounded-lg shadow p-1 px-3 inline-block my-1">整体认读音节</div>
+        </div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/zhi.mp3"></audio><span>zhi</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/chi.mp3"></audio><span>chi</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/shi.mp3"></audio><span>shi</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ri.mp3"></audio><span>ri</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/zi.mp3"></audio><span>zi</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ci.mp3"></audio><span>ci</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/si.mp3"></audio><span>si</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/yi.mp3"></audio><span>yi</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/wu.mp3"></audio><span>wu</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/yu.mp3"></audio><span>yu</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ye.mp3"></audio><span>ye</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/yue.mp3"></audio><span>yue</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/yuan.mp3"></audio><span>yuan</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/yin.mp3"></audio><span>yin</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/yun.mp3"></audio><span>yun</span></div>
+        <div class="pinyin-card"><audio src="./PinYinMp3/ying.mp3"></audio><span>ying</span></div>
+      </div>
+      <footer class="mt-8 text-xs sm:text-sm text-gray-500 bg-green-50/60 p-3 rounded-lg text-center shadow-inner">
+        <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 list-none p-0 m-0">
+          <li>数据整理：依据《汉语拼音方案》</li>
+          <li>&copy; 2025 学习喽</li>
+        </ul>
+      </footer>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll(".pinyin-card").forEach(item => {
+      const audio = item.querySelector("audio");
+      if (audio) {
+        item.addEventListener("click", function() {
+          audio.currentTime = 0;
+          audio.play();
+        });
+        item.classList.add("cursor-pointer");
+      } else {
+        item.classList.remove("cursor-pointer");
+        item.classList.add("text-gray-300");
+        item.setAttribute("title", "暂无音频");
+      }
+    });
+  </script>
+</body>
+</html>
