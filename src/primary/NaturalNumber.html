@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>趣味数学</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+  <link href="../css/output.css" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    .section-title {
+      @apply text-xl sm:text-2xl font-bold mb-4 text-blue-700;
+      letter-spacing: .01em;
+    }
+    .module-card {
+      @apply rounded-2xl shadow-lg px-7 py-6 text-center font-bold text-lg sm:text-xl cursor-pointer transition hover:-translate-y-2 hover:shadow-2xl;
+      border: 2px solid #e0e7ef;
+      min-width: 135px;
+      min-height: 112px;
+      margin: 8px 10px 16px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px 0 rgba(59,130,246,0.10),0 .5px 1.5px 0 rgba(16, 185, 129, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .module-card .icon-wrap {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* 彩色背景渐变，顺序可自行扩展 */
+    .module-n1 { background: linear-gradient(120deg,#e0e7ff 65%,#c7d2fe 100%);}
+    .module-n2 { background: linear-gradient(120deg,#fef9c3 65%,#fde68a 100%);}
+    .module-n3 { background: linear-gradient(120deg,#fce7f3 65%,#f9a8d4 100%);}
+    .module-n4 { background: linear-gradient(120deg,#dcfce7 65%,#6ee7b7 100%);}
+    .module-n5 { background: linear-gradient(120deg,#fee2e2 65%,#fca5a5 100%);}
+    .module-n6 { background: linear-gradient(120deg,#cffafe 65%,#38bdf8 100%);}
+    .module-card:hover { filter:brightness(1.08) saturate(1.18); }
+    .num-card {
+      @apply bg-blue-100 rounded-2xl shadow px-6 py-5 text-3xl font-bold relative transition duration-400;
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(48px) scale(1);
+      margin: 0 8px;
+    }
+    .num-card.visible {
+      opacity: 1;
+      animation: bounce-in 0.7s cubic-bezier(.4,2,.4,1.1);
+      transform: translateY(0) scale(1);
+    }
+    @keyframes bounce-in {
+      0% { opacity:0; transform:translateY(48px) scale(0.7);}
+      60% { opacity:1; transform:translateY(-18px) scale(1.15);}
+      90% { opacity:1; transform:translateY(5px) scale(0.97);}
+      100% { opacity:1; transform:translateY(0) scale(1);}
+    }
+    .num-card:hover {
+      box-shadow: 0 8px 32px 0 rgba(59,130,246,0.20), 0 2px 8px 0 rgba(34,197,94,0.13);
+      border-color: #60a5fa;
+      background: linear-gradient(120deg, #dbeafe 60%, #fff 100%);
+      transform: scale(1.18) !important;
+      z-index:2;
+    }
+    .number-label {
+      font-size: 1.05rem;
+      color: #fff;
+      background: #2563eb;
+      padding: 0.35em 1.5em;
+      border-radius: 0.7em;
+      font-weight: bold;
+      letter-spacing: 0.02em;
+      box-shadow: 0 2px 8px 0 #dbeafe80;
+      display: inline-block;
+      margin-bottom: 0.3em;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen pb-10">
+
+  <div class="w-full max-w-5xl mx-auto pt-6 sm:pt-12">
+    <!-- 页面标题 -->
+    <div class="flex flex-col items-center mb-8">
+      <button onclick="location.href='../home-primary.html'"
+        class="px-4 py-1 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 shadow text-sm transition mb-4 self-start">
+        ← 返回小学知识天地
+      </button>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-center tracking-tight text-blue-700 drop-shadow mb-2">
+        趣味数学
+      </h1>
+      <p class="text-base sm:text-lg text-blue-700 mt-1 mb-2 px-2 text-center">
+        数学不只是做题！每个小模块都有新奇玩法，边学边玩，快来体验吧～
+      </p>
+    </div>
+
+    <!-- 选择区块（带图标+彩色卡片） -->
+    <div class="flex flex-wrap justify-center gap-2 mb-6">
+      <div class="module-card module-n1" onclick="location.href='#natural'">
+        <span class="icon-wrap">
+          <!-- 自然数图标：数字1，跳动 -->
+          <svg width="32" height="32" viewBox="0 0 32 32"><text x="7" y="26" font-size="24" fill="#2563eb" font-weight="bold">1</text></svg>
+        </span>
+        自然数
+      </div>
+
+      <div class="module-card module-n3" onclick="location.href='#fraction'">
+        <span class="icon-wrap">
+          <!-- 分数：饼图样式 -->
+          <svg width="32" height="32"><circle cx="16" cy="16" r="13" fill="#f9a8d4"/><path d="M16 16 L16 3 A13 13 0 0 1 28.39 23.6 Z" fill="#be185d"/></svg>
+        </span>
+        分数与图形
+      </div>
+      <div class="module-card module-n4" onclick="location.href='#puzzle'">
+        <span class="icon-wrap">
+          <!-- 趣味谜题：问号 -->
+          <svg width="32" height="32"><circle cx="16" cy="16" r="13" fill="#34d399"/><text x="11" y="26" font-size="20" fill="#047857" font-weight="bold">?</text></svg>
+        </span>
+        趣味谜题
+      </div>
+      <div class="module-card module-n5" onclick="location.href='#mathlife'">
+        <span class="icon-wrap">
+          <!-- 生活：小房子 -->
+          <svg width="32" height="32"><rect x="7" y="15" width="18" height="10" fill="#f87171"/><polygon points="16,6 27,15 5,15" fill="#ef4444"/></svg>
+        </span>
+        数学与生活
+      </div>
+      <!-- 可继续扩展更多 -->
+    </div>
+
+    <!-- 内容区块们 -->
+    <!-- 1. 自然数区块 -->
+ <section id="natural" class="bg-white/80 rounded-3xl shadow-xl p-6 sm:p-10 mb-10 mt-2 scroll-mt-24">
+  <div class="text-2xl sm:text-3xl font-extrabold mb-7 text-blue-700 tracking-wide text-center">自然数</div>
+  
+  <!-- 图片居中显示 -->
+  <div class="w-full flex justify-center mb-7">
+    <img src="img/01.png" alt="远古计数漫画" class="rounded-2xl shadow-lg max-w-2xl w-full object-cover">
+  </div>
+  
+  <!-- 文字内容 -->
+  <div class="text-gray-800 text-base sm:text-lg leading-8 max-w-3xl mx-auto mb-7">
+    <p class="mb-5 indent-8">
+      <span class="inline-block bg-blue-100 rounded px-2 py-1 mr-2 text-blue-700 font-semibold">自然数</span>
+      是人类在生产和生活实践中逐步产生的。远古时代，人们通过打结、刻痕、用石头等方式计数，比如“打一个结代表一天”“伸出三根手指表示三只羊”。
+    </p>
+    <p class="mb-5 indent-8">
+      随着社会发展，人们把“数”从具体物体中抽象出来，于是有了“1、2、3……”这些用来计数的数。每个自然数都比前一个大1，<b class="text-blue-700 font-bold">1</b> 是最小的自然数，<b class="text-blue-700 font-bold">自然数有无穷多个</b>，在生活中无处不在。
+    </p>
+    <p class="text-blue-600 mt-3 font-medium text-base">
+      试着说说“1、2、3、4、5……”之后的下一个自然数是什么？
+    </p>
+  </div>
+  
+  <!-- 动画数字区块 -->
+  <div class="flex justify-center gap-4 mb-4" id="numbers">
+    <span class="num-card">1</span>
+    <span class="num-card">2</span>
+    <span class="num-card">3</span>
+    <span class="num-card">4</span>
+    <span class="num-card">5</span>
+  </div>
+  <div class="text-blue-700 text-sm mt-2 font-semibold text-center">每个数字都比前一个多1！</div>
+</section>
+
+
+
+
+
+
+    <!--  分数与图形区块 -->
+    <section id="fraction" class="bg-pink-50/80 rounded-3xl shadow-xl p-6 sm:p-10 mb-10 mt-2 scroll-mt-24">
+      <div class="section-title text-pink-700">分数与图形</div>
+      <div class="text-gray-400 text-center py-8 text-lg">敬请期待</div>
+    </section>
+
+    <!-- 趣味谜题区块 -->
+    <section id="puzzle" class="bg-green-50/80 rounded-3xl shadow-xl p-6 sm:p-10 mb-10 mt-2 scroll-mt-24">
+      <div class="section-title text-green-700">趣味谜题</div>
+      <div class="text-gray-400 text-center py-8 text-lg">敬请期待</div>
+    </section>
+
+    <!--  数学与生活区块 -->
+    <section id="mathlife" class="bg-red-50/80 rounded-3xl shadow-xl p-6 sm:p-10 mb-10 mt-2 scroll-mt-24">
+      <div class="section-title text-red-700">数学与生活</div>
+      <div class="text-gray-400 text-center py-8 text-lg">敬请期待</div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="mt-8 text-xs sm:text-sm text-gray-500 bg-blue-50/60 p-3 rounded-lg text-center shadow-inner">
+      <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 list-none p-0 m-0">
+        <li>内容整理：学习喽 · 趣味数学</li>
+        <li>&copy; 2025 学习喽</li>
+      </ul>
+    </footer>
+  </div>
+
+  <script>
+    // 依次让自然数动画数字跳出
+    const nums = document.querySelectorAll('#numbers .num-card');
+    nums.forEach((el, idx) => {
+      setTimeout(() => el.classList.add('visible'), 350 + idx * 320);
+    });
+  </script>
+</body>
+</html>
