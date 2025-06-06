@@ -83,7 +83,6 @@ GoStudy/
 > * `src/css/` 下包含 Tailwind 源文件 (`input.css`)、生成后的样式文件 (`output.css`) 。
 > * `src/js/` 下包含数学公式渲染的 KaTeX 目录和 `html2canvas.min.js`。
 > * `src/middle/` 与 `src/primary/` 文件夹分别用于存放中学与小学阶段的功能页面（示例中未显示具体文件，可自行补充）。
-> * 根目录下还包括 Git 配置、许可证、npm 配置和 README。
 
 ---
 
