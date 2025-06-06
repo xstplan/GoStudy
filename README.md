@@ -1,9 +1,9 @@
-````markdown
+
 # GoStudy 学习喽
 
 一个面向小学、初中、高中、大学不同阶段的常用学习工具箱。
 
-本项目为纯 HTML 静态网页，使用 [Tailwind CSS](https://tailwindcss.com/) 快速美化，致力于让公式、算法和知识点一目了然。
+本项目为纯 HTML 静态网页，使用 [Tailwind CSS](https://tailwindcss.com/) 。
 
 ---
 
